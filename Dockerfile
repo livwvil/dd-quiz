@@ -6,6 +6,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
+COPY . .
+
 RUN cd web \
     && npm i \
     && npm run build \
@@ -15,8 +17,6 @@ RUN cd web \
     && mkdir -p ./dist/clientApp \
     && cp -RT ../web/dist ./dist/clientApp \
     && cd ..
-
-COPY ./server/dist .
 
 # Run app
 CMD [ "node", "./index.js" ]
