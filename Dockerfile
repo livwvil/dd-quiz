@@ -16,8 +16,7 @@ RUN cd web \
     && npm i \
     && npm run prod:build \
     && mkdir -p ./dist/clientApp \
-    && cp -RT ../web/dist ./dist/clientApp \
-    && rm -rf node_modules
+    && cp -RT ../web/dist ./dist/clientApp
 
 # Run app
 CMD [ "node", "./index.js" ]
