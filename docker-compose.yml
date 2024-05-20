@@ -1,6 +1,6 @@
 services:
   server:
-    container_name: wd
+    container_name: dd-quiz
     build:
       context: .
     command: node ./server/dist/index.js
