@@ -11,12 +11,13 @@ COPY . .
 RUN cd web \
     && npm i \
     && npm run build \
+    && rm -rf node_modules \
     && cd ../server \
     && npm i \
     && npm run prod:build \
     && mkdir -p ./dist/clientApp \
     && cp -RT ../web/dist ./dist/clientApp \
-    && cd ..
+    && rm -rf node_modules
 
 # Run app
 CMD [ "node", "./index.js" ]
