@@ -13,7 +13,8 @@ RUN cd web \
     && npm i \
     && npm run prod:build \
     && mkdir -p ./dist/clientApp \
-    && cp -RT ../web/dist ./dist/clientApp
+    && cp -RT ../web/dist ./dist/clientApp \
+    && cd ..
 
 COPY ./server/dist .
 
